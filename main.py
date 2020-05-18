@@ -153,7 +153,7 @@ def main():
         elif last_chat_text.lower() == r'/start':
             xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
         elif last_chat_text.lower() == r'/help':
-            xkcdbot.send_message(last_chat_id, 'No)')
+            xkcdbot.send_video(last_chat_id, 'BAACAgIAAxkBAAIBRF7ClmA-oqskTgUOyZ_aSEbtFB5bAAKHBgACFZMRSmecvLZFUgqeGQQ)')
         elif last_chat_text.lower() == r'/rick':
             xkcdbot.send_audio(last_chat_id, 'https://imgs.xkcd.com/blag/xkcd_389.mp3')
         elif last_chat_text.lower() == r'привет':
