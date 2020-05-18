@@ -142,7 +142,6 @@ def main():
         last_update = xkcdbot.get_last_update()
 
         last_update_id = last_update['update_id']
-        last_chat_msg_file_id = last_update['message']['file_id']
         last_chat_text = last_update['message']['text']
         last_chat_video = last_update['message']['video']
         last_chat_id = last_update['message']['chat']['id']
@@ -159,7 +158,7 @@ def main():
         elif last_chat_text.lower() == r'пока':
             xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
         else:
-            xkcdbot.send_message(last_chat_id, last_chat_msg_file_id)
+            xkcdbot.send_message(last_chat_id, last_chat_video)
 
         new_offset = last_update_id + 1
 
