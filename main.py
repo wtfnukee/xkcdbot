@@ -83,9 +83,9 @@ def main():
             xkcdbot.send_message(last_chat_id, getcomics())
         elif last_chat_text.lower() == r'/start':
             xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
-        elif last_chat_text.lower() == r'Привет':
+        elif last_chat_text.lower() == r'привет':
             xkcdbot.send_message(last_chat_id, 'Привет, {}!'.format(last_chat_name))
-        elif last_chat_text.lower() == r'Пока':
+        elif last_chat_text.lower() == r'пока':
             xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
         else:
             xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
