@@ -82,7 +82,13 @@ def main():
         if last_chat_text.lower() == r'/xkcd':
             xkcdbot.send_message(last_chat_id, getcomics())
         elif last_chat_text.lower() == r'/start':
+            xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
+        elif last_chat_text.lower() == r'Привет':
             xkcdbot.send_message(last_chat_id, 'Привет, {}!'.format(last_chat_name))
+        elif last_chat_text.lower() == r'Пока':
+            xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
+        else:
+            xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
 
         new_offset = last_update_id + 1
 
