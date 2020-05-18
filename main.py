@@ -11,7 +11,6 @@ def getcomics():
     for link in soup.find_all('img'):
         url = link.get('src')
         linkslist.append(url)
-    linkslist.pop()
     url = linkslist[0]
     name = url[18:]
 
@@ -82,6 +81,8 @@ def main():
 
         if last_chat_text.lower() == r'/xkcd':
             xkcdbot.send_message(last_chat_id, getcomics())
+        if last_chat_text.lower() == r'/start':
+            xkcdbot.send_message(last_chat_id, 'Привет, {}!'.format(last_chat_name))
 
         new_offset = last_update_id + 1
 
