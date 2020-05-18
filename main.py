@@ -127,7 +127,7 @@ class BotHandler:
         else:
             last_update = get_result[len(get_result)]
 
-        #print(last_update)
+        print(last_update)
 
         return last_update
 
