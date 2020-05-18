@@ -125,7 +125,7 @@ class BotHandler:
         if len(get_result) > 0:
             last_update = get_result[-1]
         else:
-            last_update = get_result[len(get_result)]
+            last_update = get_result[0]
 
         return last_update
 
@@ -150,6 +150,8 @@ def main():
             xkcdbot.send_message(last_chat_id, getcomics())
         elif last_chat_text.lower() == r'/start':
             xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
+        elif last_chat_text.lower() == r'/help':
+            xkcdbot.send_audio(last_chat_id, 'AwADAgADAwAD_xDkBl6bSizRtL_9Ag')
         elif last_chat_text.lower() == r'привет':
             xkcdbot.send_message(last_chat_id, 'Привет, {}!'.format(last_chat_name))
         elif last_chat_text.lower() == r'пока':
