@@ -142,7 +142,9 @@ def main():
         last_update = xkcdbot.get_last_update()
 
         last_update_id = last_update['update_id']
+        last_chat_msg_file_id = last_update['message']['file_id']
         last_chat_text = last_update['message']['text']
+        last_chat_video = last_update['message']['video']
         last_chat_id = last_update['message']['chat']['id']
         last_chat_name = last_update['message']['chat']['first_name']
 
@@ -151,13 +153,13 @@ def main():
         elif last_chat_text.lower() == r'/start':
             xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
         elif last_chat_text.lower() == r'/help':
-            xkcdbot.send_audio(last_chat_id, 'AwADAgADAwAD_xDkBl6bSizRtL_9Ag')
+            xkcdbot.send_video(last_chat_id, '')
         elif last_chat_text.lower() == r'привет':
             xkcdbot.send_message(last_chat_id, 'Привет, {}!'.format(last_chat_name))
         elif last_chat_text.lower() == r'пока':
             xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
         else:
-            xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
+            xkcdbot.send_message(last_chat_id, last_chat_msg_file_id)
 
         new_offset = last_update_id + 1
 
