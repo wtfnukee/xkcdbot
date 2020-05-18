@@ -52,6 +52,73 @@ class BotHandler:
         resp = requests.post(self.api_url + method, params)
         return resp
 
+    def send_photo(self, chat_id, photo):
+        params = {'chat_id': chat_id, 'photo': photo}
+        method = 'sendPhoto'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_audio(self, chat_id, audio):
+        params = {'chat_id': chat_id, 'audio': audio}
+        method = 'sendAudio'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_document(self, chat_id, document):
+        params = {'chat_id': chat_id, 'document': document}
+        method = 'sendDocument'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_sticker(self, chat_id, sticker):
+        params = {'chat_id': chat_id, 'sticker': sticker}
+        method = 'sendSticker'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_video(self, chat_id, video):
+        params = {'chat_id': chat_id, 'video': video}
+        method = 'sendVideo'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_voice(self, chat_id, voice):
+        params = {'chat_id': chat_id, 'voice': voice}
+        method = 'sendVoice'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_location(self, chat_id, latitude, longitude):
+        params = {'chat_id': chat_id, 'latitude': latitude, 'longitude': longitude}
+        method = 'sendLocation'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_venue(self, chat_id, latitude, longitude, title, address):
+        params = {'chat_id': chat_id, 'latitude': latitude, 'longitude': longitude, 'title': title, 'address': address}
+        method = 'sendVenue'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_contact(self, chat_id, phone_number, first_name):
+        params = {'chat_id': chat_id, 'phone_number': phone_number, 'first_name': first_name}
+        method = 'sendContact'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def send_chatAction(self, chat_id, action):
+        params = {'chat_id': chat_id, 'action': action}
+        method = 'sendChatAction'
+        resp = requests.post(self.api_url + method, params)
+        return resp
+
+    def get_userProfilePhotos(self, user_id):
+        params = {'user_id': user_id}
+        method = 'getUserProfilePhotos'
+        resp = requests.get(self.api_url + method, params)
+        result_json = resp.json()['result']
+        return result_json
+
     def get_last_update(self):
         get_result = self.get_updates()
 
