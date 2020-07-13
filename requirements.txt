@@ -4,3 +4,4 @@ django-heroku
 requests
 bs4
 gunicorn
+asyncio
