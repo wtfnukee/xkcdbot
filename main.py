@@ -14,7 +14,7 @@ def getcomics():
         linkslist.append(url)
     url = linkslist[0]
 
-    text = soup.find_all("div", class_="comics_text")[0]
+    text = soup.find("div", class_="comics_text")
     regextext = re.sub(r'\<[^>]*\>', '', text)
 
     print(regextext)
