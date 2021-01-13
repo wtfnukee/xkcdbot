@@ -6,3 +6,4 @@ bs4
 gunicorn
 asyncio
 wikipedia
+re

@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 def getcomics():
@@ -13,9 +14,10 @@ def getcomics():
         linkslist.append(url)
     url = linkslist[0]
 
-    text = soup.find_all("div", class_="comics_text")
+    text = soup.find_all("div", class_="comics_text")[0]
+    regextext = re.sub(r'\<[^>]*\>', '', text)
 
-    print(text)
+    print(regextext)
     name = url[18:]
     return url
 
