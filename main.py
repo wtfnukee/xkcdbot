@@ -1,7 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import asyncio
-import wikipedia
 
 
 def getcomics():
@@ -16,8 +14,10 @@ def getcomics():
     url = linkslist[0]
     name = url[18:]
     return url
-###
-#def downloadcomics():
+
+
+#
+# def downloadcomics():
 #    with open(name, 'wb') as handle:
 #        response = requests.get(url, stream=True)
 #
@@ -29,10 +29,10 @@ def getcomics():
 #                break
 #
 #            handle.write(block)
-###
+#
 
 
-token = '870916754:AAEQ0uzA3rPo5DH-d0u3c6tks1V8stldNWk'
+token = r'870916754:AAEQ0uzA3rPo5DH-d0u3c6tks1V8stldNWk'
 
 
 class BotHandler:
