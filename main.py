@@ -138,7 +138,7 @@ xkcdbot = BotHandler(token)
 
 
 def main():
-    new_offset = None
+    new_offset = 0
 
     while True:
         xkcdbot.get_updates(new_offset)
