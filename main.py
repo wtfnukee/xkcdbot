@@ -13,7 +13,7 @@ def getcomics():
         linkslist.append(url)
     url = linkslist[0]
 
-    text = BeautifulSoup(soup.find_all("div", class_="comics_text")).get_text()
+    text = soup.find_all("div", class_="comics_text")
 
     print(text)
     name = url[18:]
