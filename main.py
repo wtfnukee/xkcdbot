@@ -8,7 +8,11 @@ def getcomics():
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
 
-    url = soup.find('img')
+    linkslist = []
+    for link in soup.find_all('img'):
+        url = link.get('src')
+        linkslist.append(url)
+    url = linkslist[0]
 
     text = soup.find("div", class_="comics_text")
 
