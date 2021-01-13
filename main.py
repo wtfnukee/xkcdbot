@@ -144,31 +144,31 @@ def main():
         try:
             xkcdbot.get_updates(new_offset)
             last_update = xkcdbot.get_last_update()
+
+            last_update_id = last_update['update_id']
+            last_chat_text = last_update['message']['text']
+            last_chat_id = last_update['message']['chat']['id']
+            last_chat_name = last_update['message']['chat']['first_name']
+
+            if last_chat_text.lower() == r'/xkcd':
+                xkcdbot.send_message(last_chat_id, getcomics())
+            elif last_chat_text.lower() == r'/start':
+                xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
+            elif last_chat_text.lower() == r'/help':
+                xkcdbot.send_video(last_chat_id, 'BAACAgIAAxkBAAIBRF7ClmA-oqskTgUOyZ_aSEbtFB5bAAKHBgACFZMRSmecvLZFUgqeGQQ)')
+            elif last_chat_text.lower() == r'/rick':
+                xkcdbot.send_audio(last_chat_id, 'https://imgs.xkcd.com/blag/xkcd_389.mp3')
+            elif last_chat_text.lower() == r'привет':
+                xkcdbot.send_message(last_chat_id, 'Привет, {}!'.format(last_chat_name))
+            elif last_chat_text.lower() == r'пока':
+                xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
+            else:
+                xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
+
+            new_offset = last_update_id + 1
+
         except Exception:
             pass
-
-        last_update_id = last_update['update_id']
-        last_chat_text = last_update['message']['text']
-        last_chat_id = last_update['message']['chat']['id']
-        last_chat_name = last_update['message']['chat']['first_name']
-
-        if last_chat_text.lower() == r'/xkcd':
-            xkcdbot.send_message(last_chat_id, getcomics())
-        elif last_chat_text.lower() == r'/start':
-            xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
-        elif last_chat_text.lower() == r'/help':
-            xkcdbot.send_video(last_chat_id, 'BAACAgIAAxkBAAIBRF7ClmA-oqskTgUOyZ_aSEbtFB5bAAKHBgACFZMRSmecvLZFUgqeGQQ)')
-        elif last_chat_text.lower() == r'/rick':
-            xkcdbot.send_audio(last_chat_id, 'https://imgs.xkcd.com/blag/xkcd_389.mp3')
-        elif last_chat_text.lower() == r'привет':
-            xkcdbot.send_message(last_chat_id, 'Привет, {}!'.format(last_chat_name))
-        elif last_chat_text.lower() == r'пока':
-            xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
-        else:
-            xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
-
-        new_offset = last_update_id + 1
-
 
 if __name__ == '__main__':
     try:
