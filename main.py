@@ -141,9 +141,11 @@ def main():
     new_offset = 0
 
     while True:
-        xkcdbot.get_updates(new_offset)
-
-        last_update = xkcdbot.get_last_update()
+        try:
+            xkcdbot.get_updates(new_offset)
+            last_update = xkcdbot.get_last_update()
+        except Exception:
+            pass
 
         last_update_id = last_update['update_id']
         last_chat_text = last_update['message']['text']
