@@ -13,10 +13,10 @@ def getcomics():
         linkslist.append(url)
     url = linkslist[0]
 
-    text = soup.find_all('comics_text')[0]
-    print(text+'\n' + url)
+    text = soup.find_all('comics_text')
+    print(text)
     name = url[18:]
-    return text+'\n' + url
+    return url
 
 
 #
@@ -130,7 +130,7 @@ class BotHandler:
         if len(get_result) > 0:
             last_update = get_result[-1]
         else:
-            last_update = get_result[len(get_result)-1]
+            last_update = get_result[len(get_result) - 1]
 
         print(last_update)
 
@@ -158,7 +158,8 @@ def main():
             elif last_chat_text.lower() == r'/start':
                 xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
             elif last_chat_text.lower() == r'/help':
-                xkcdbot.send_video(last_chat_id, 'BAACAgIAAxkBAAIBRF7ClmA-oqskTgUOyZ_aSEbtFB5bAAKHBgACFZMRSmecvLZFUgqeGQQ)')
+                xkcdbot.send_video(last_chat_id,
+                                   'BAACAgIAAxkBAAIBRF7ClmA-oqskTgUOyZ_aSEbtFB5bAAKHBgACFZMRSmecvLZFUgqeGQQ)')
             elif last_chat_text.lower() == r'/rick':
                 xkcdbot.send_audio(last_chat_id, 'https://imgs.xkcd.com/blag/xkcd_389.mp3')
             elif last_chat_text.lower() == r'привет':
@@ -172,6 +173,7 @@ def main():
 
         except Exception:
             pass
+
 
 if __name__ == '__main__':
     try:
