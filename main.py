@@ -17,7 +17,7 @@ def getcomics():
     text = soup.find("div", class_="comics_text")
     regextext = re.sub(r'\<[^>]*\>', '', text)
 
-    print(regextext)
+    print(text)
     name = url[18:]
     return url
 
