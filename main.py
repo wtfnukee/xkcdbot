@@ -12,8 +12,11 @@ def getcomics():
         url = link.get('src')
         linkslist.append(url)
     url = linkslist[0]
+
+    text = soup.find_all('comics_text')[0]
+
     name = url[18:]
-    return url
+    return text+'\n' + url
 
 
 #
