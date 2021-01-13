@@ -16,20 +16,20 @@ def getcomics():
     url = linkslist[0]
     name = url[18:]
     return url
-
-def downloadcomics():
-    with open(name, 'wb') as handle:
-        response = requests.get(url, stream=True)
-
-        if not response.ok:
-            print(response)
-
-        for block in response.iter_content(1024):
-            if not block:
-                break
-
-            handle.write(block)
-
+###
+#def downloadcomics():
+#    with open(name, 'wb') as handle:
+#        response = requests.get(url, stream=True)
+#
+#        if not response.ok:
+#            print(response)
+#
+#        for block in response.iter_content(1024):
+#           if not block:
+#                break
+#
+#            handle.write(block)
+###
 
 
 token = '870916754:AAEQ0uzA3rPo5DH-d0u3c6tks1V8stldNWk'
