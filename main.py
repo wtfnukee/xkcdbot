@@ -34,7 +34,7 @@ def getcomics():
 #
 
 
-token = r'870916754:AAEQ0uzA3rPo5DH-d0u3c6tks1V8stldNWk'
+token = r'870916754:AAHxyvfL_yyYl0NEfaDr3J-xKncOGaLD20s'
 
 
 class BotHandler:
