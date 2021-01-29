@@ -16,7 +16,7 @@ def getcomics():
 
     print(text, '\n', url)
     name = url[18:]
-    return text, url
+    return text + r'  '+ url
 
 
 #
