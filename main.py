@@ -7,11 +7,8 @@ def getcomics():
     url = "https://xkcd.ru/random/0/"
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
-
     url = soup.find('img').get('src')
-
     text = soup.find("div", class_="comics_text", text=True).get_text().strip()
-
     print(text, '\n', url)
     # name = url[18:]
     return text + '\n' + url
@@ -157,7 +154,7 @@ def main():
                 xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
             elif last_chat_text.lower() == r'/help':
                 xkcdbot.send_video(last_chat_id,
-                                   'BAACAgIAAxkBAAIBRF7ClmA-oqskTgUOyZ_aSEbtFB5bAAKHBgACFZMRSmecvLZFUgqeGQQ)')
+                                   'BAACAgIAAxkBAAICUGAUP9J3qEDaYYGV6KbDc9AFoYGaAALKCwACGluhSGM4-H0LOw70HgQ')
             elif last_chat_text.lower() == r'/rick':
                 xkcdbot.send_audio(last_chat_id, 'https://imgs.xkcd.com/blag/xkcd_389.mp3')
             elif last_chat_text.lower() == r'привет':
