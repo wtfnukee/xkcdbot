@@ -1,10 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import os
 
 
 def getcomics():
-    url = "https://xkcd.ru/random/1/"
+    url = "https://xkcd.ru/random/0/"
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
 
@@ -34,7 +35,7 @@ def getcomics():
 #
 
 
-token = r'870916754:AAHxyvfL_yyYl0NEfaDr3J-xKncOGaLD20s'
+token = os.environ.get('TELETOKEN', None)
 
 
 class BotHandler:
