@@ -12,7 +12,7 @@ def getcomics():
 
     url = soup.find('img').get('src')
 
-    text = soup.find("div", class_="comics_text", text=True).strings
+    text = soup.find("div", class_="comics_text", text=True).text.strip()
 
     print(text)
     name = url[18:]
