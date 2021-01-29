@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import re
 import os
 
 
@@ -9,14 +8,13 @@ def getcomics():
     page = requests.get(url)
     soup = BeautifulSoup(page.text, 'html.parser')
 
-
     url = soup.find('img').get('src')
 
     text = soup.find("div", class_="comics_text", text=True).get_text().strip()
 
     print(text, '\n', url)
-    name = url[18:]
-    return text + '\n'+ url
+    # name = url[18:]
+    return text + '\n' + url
 
 
 #
@@ -171,8 +169,8 @@ def main():
 
             new_offset = last_update_id + 1
 
-        except Exception:
-            pass
+        except Exception as e:
+            print(e)
 
 
 if __name__ == '__main__':
