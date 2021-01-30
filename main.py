@@ -162,7 +162,7 @@ def main():
             elif last_chat_text.lower() == r'пока':
                 xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
             elif last_chat_text.lower().startswith(r'/sticker'):
-                print(last_chat_text.lower()[9:])
+                xkcdbot.send_sticker(last_chat_id, last_chat_text.lower()[9:])
             else:
                 xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
 
