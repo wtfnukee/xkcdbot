@@ -164,7 +164,7 @@ def main():
                 xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
             elif last_chat_text.lower().startswith(r'/dice'):
                 print(last_chat_text.lower()[5:])
-                xkcdbot.send_message(last_chat_id, random.randint(1, last_chat_text.lower()[5:]))
+                xkcdbot.send_message(last_chat_id, random.randint(1, int(last_chat_text.lower()[5:])))
             else:
                 xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
 
