@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import random
+import time
 
 
 def getcomics():
@@ -148,8 +149,11 @@ def main():
             last_chat_text = last_update['message']['text']
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['chat']['first_name']
-
-            if last_chat_text.lower() == r'/xkcd':
+            if time.strftime('%H', time.localtime()) == 8:
+                print(r'cerni coi')
+            elif time.strftime('%H', time.localtime()) == 22:
+                print(r"pluka nicte di'ai")
+            elif last_chat_text.lower() == r'/xkcd':
                 xkcdbot.send_message(last_chat_id, getcomics())
             elif last_chat_text.lower() == r'/start':
                 xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
