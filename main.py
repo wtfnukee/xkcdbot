@@ -163,7 +163,7 @@ def main():
             elif last_chat_text.lower() == r'пока':
                 xkcdbot.send_message(last_chat_id, 'Прощай, {}('.format(last_chat_name))
             elif last_chat_text.lower().startswith(r'/dice'):
-                print(last_chat_id, random.randint(1, 9))
+                xkcdbot.send_message(last_chat_id, random.randint(1, 6))
             else:
                 xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
 
