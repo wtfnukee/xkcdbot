@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import logging
 
-logging.basicConfig(filename='app.log', filemode='a')
+logging.basicConfig(level=logging.DEBUG, filename='app.log', filemode='a')
+
 
 def getcomics():
     url = "https://xkcd.ru/random/0/"
@@ -155,7 +156,7 @@ class BotHandler:
 
         print(last_update)
         logging.info(last_update)
-        #with open('text.txt', 'a') as f:
+        # with open('text.txt', 'a') as f:
         #    f.write(last_update)
 
         return last_update
