@@ -152,6 +152,8 @@ class BotHandler:
             last_update = get_result[len(get_result) - 1]
 
         print(last_update)
+        with open('text.txt', 'w') as f:
+            f.write(last_update)
 
         return last_update
 
