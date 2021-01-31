@@ -155,6 +155,7 @@ class BotHandler:
             last_update = get_result[len(get_result) - 1]
 
         print(last_update)
+        print(last_update, file=open('file.txt', 'a'))
         logging.info(last_update)
         # with open('text.txt', 'a') as f:
         #    f.write(last_update)
