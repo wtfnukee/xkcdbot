@@ -5,7 +5,9 @@ import random
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+import logging
 
+logging.basicConfig(filename='app.log', filemode='a')
 
 def getcomics():
     url = "https://xkcd.ru/random/0/"
@@ -152,6 +154,7 @@ class BotHandler:
             last_update = get_result[len(get_result) - 1]
 
         print(last_update)
+        logging.info(last_update)
         #with open('text.txt', 'a') as f:
         #    f.write(last_update)
 
