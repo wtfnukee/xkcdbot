@@ -190,7 +190,7 @@ def main():
             elif last_chat_text.lower().startswith(r'/plot'):
                 raw = last_chat_text.lower()[5:]
                 drawplot()
-                xkcdbot.send_photo(last_chat_id, open('plot.png'))
+                xkcdbot.send_photo(last_chat_id, 'plot.png')
 
             else:
                 xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
