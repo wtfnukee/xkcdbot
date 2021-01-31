@@ -198,7 +198,7 @@ def main():
             new_offset = last_update_id + 1
 
         except Exception as e:
-            pass
+            print(e)
 
 
 if __name__ == '__main__':
