@@ -18,7 +18,7 @@ def getcomics():
     return text + '\n' + url
 
 
-def saveplot(name, fmt):
+def saveplot(name='plot', fmt='png'):
     pwd = os.getcwd()
     iPath = './pictures/{}'.format(fmt)
     if not os.path.exists(iPath):
@@ -35,7 +35,7 @@ def drawplot():
     grid = plt.grid(True)
     plt.plot(x, y)
     plt.show()
-    saveplot('plot', 'png')
+    plt.savefig('plot.png')
 
 
 #
