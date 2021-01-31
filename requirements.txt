@@ -3,6 +3,5 @@ gunicorn
 django-heroku
 requests
 bs4
-gunicorn
-asyncio
-wikipedia
+matplotlib
+numpy

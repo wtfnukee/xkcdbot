@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import os
 import random
 import time
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def getcomics():
@@ -14,6 +16,26 @@ def getcomics():
     print(text, '\n', url)
     # name = url[18:]
     return text + '\n' + url
+
+
+def saveplot(name, fmt):
+    pwd = os.getcwd()
+    iPath = './pictures/{}'.format(fmt)
+    if not os.path.exists(iPath):
+        os.mkdir(iPath)
+    os.chdir(iPath)
+    plt.savefig('{}.{}'.format(name, fmt), fmt='png')
+    os.chdir(pwd)
+    # plt.close()
+
+
+def drawplot():
+    x = np.arange(0, 10, 0.1)
+    y = np.sin(x)
+    grid = plt.grid(True)
+    plt.plot(x, y)
+    plt.show()
+    saveplot('plot', 'png')
 
 
 #
@@ -149,11 +171,7 @@ def main():
             last_chat_text = last_update['message']['text']
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['chat']['first_name']
-            if time.strftime('%H', time.localtime()) == 8:
-                print(r'cerni coi')
-            elif time.strftime('%H', time.localtime()) == 22:
-                print(r"pluka nicte di'ai")
-            elif last_chat_text.lower() == r'/xkcd':
+            if last_chat_text.lower() == r'/xkcd':
                 xkcdbot.send_message(last_chat_id, getcomics())
             elif last_chat_text.lower() == r'/start':
                 xkcdbot.send_message(last_chat_id, 'Добро пожаловать, {}!'.format(last_chat_name))
@@ -169,6 +187,11 @@ def main():
             elif last_chat_text.lower().startswith(r'/dice'):
                 print(last_chat_text.lower()[5:])
                 xkcdbot.send_message(last_chat_id, random.randint(1, int(last_chat_text.lower()[5:])))
+            elif last_chat_text.lower().startswith(r'/plot'):
+                raw = last_chat_text.lower()[5:]
+                drawplot()
+                xkcdbot.send_photo(last_chat_id, open('plot.png'))
+
             else:
                 xkcdbot.send_message(last_chat_id, 'Ничего не понял(')
 
